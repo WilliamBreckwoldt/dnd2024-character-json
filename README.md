@@ -112,63 +112,54 @@ character builder because of some homebrew change, this'll save you a ton of wor
 — your character is generated from a clean, well-structured JSON file, so you
 edit the data once and regenerate the sheet.
 
-**Do I have to use Docker or Python?** 
-
+### Do I have to use Docker or Python?
 Only to generate the PDF. The JSON itself you can write by hand in any editor —
 the tooling is optional. The data is the real product; the generator is just
 one way to view it.
 
-**How do I start my own character?** 
-
+### How do I start my own character?
 Copy one of the `characters/example-*.json` files, edit the fields, and run the
 generator. Every field is documented (with examples) in the 
 [schema](spec/character.schema.json), and `python validate.py` will tell you if
 anything's off.
 
-**Is the generated PDF editable?**
-
+### Is the generated PDF editable?
 Not really — it's flattened, so it looks identical in every reader (Adobe, Edge,
 Firefox, print). You edit the JSON, not the PDF, then regenerate. Think of the
 PDF as a printout, not a form.
 
-**What if I don't like the 2024 character sheet?** 
-
+### What if I don't like the 2024 character sheet?
 That's the best part! Because the character lives as JSON, you can convert it 
 into whatever format you want. A few we've daydreamed about: Fantasy Stat Block 
 format for Obsidian (handy for DMs), VTT import formats, and fully custom sheet 
 designs. With one source of truth for the data, every output is just a different 
 view of the same JSON.
 
-**The output format I want isn't implemented yet!** 
-
+### The output format I want isn't implemented yet!
 Yup, probably true! This repo ships a standard 2024 character sheet PDF generator,
 but the JSON is converter-neutral. If you build a new output — or hit a bug, or
 need a field the spec can't yet express — open an issue or PR. We're happy to link
 your converter here so others can find it instead of reinventing it too.
 
 
-**Will a future update break my files?** 
-
+### Will a future update break my files?
 No — the spec uses [SemVer](https://semver.org/). The 1.x line only adds optional
 fields (backwards compatible), and each file's `spec_version` tells tools what to
 expect. A breaking change would mean a 2.0.0, with a heads-up in the CHANGELOG.
 
-**Does it handle multiclassing or high-level characters?**
-
+### Does it handle multiclassing or high-level characters?
 Yep — `classes` is a list, so multiclassing is built in, and any level works. The
 example characters are low-level just to keep them easy to read. This converter 
 just validates the JSON character data conforms to the spec, it doesn't do any 
 actual rules validation so you are free to do whatever you want (DM approved, of
 course).
 
-**Why JSON (and not YAML, TOML, or a database)?** 
-
+### Why JSON (and not YAML, TOML, or a database)?
 It's universal, git-friendly, human-readable, and validatable against a schema. 
 You can hand-edit it, generate it from another tool, diff it in a pull request, 
 or parse it in any language.
 
-**Is this written by AI?** 
-
+### Is this written by AI?
 Yeah — Claude did a lot of the heavy lifting. I'm a software developer with 20+ 
 years of experience, and this is a hobby project. I've deliberately kept the
 `Co-Authored-By: Claude` line in the commit messages, because this wasn't purely
