@@ -106,8 +106,7 @@ into its own repository later and be shared by multiple converter projects.
 
 ## FAQ
 
-**Why do I need this?** 
-
+### Why do I need this?
 You don't! But if you've ever found yourself tweaking the output of another 
 character builder because of some homebrew change, this'll save you a ton of work 
 — your character is generated from a clean, well-structured JSON file, so you
