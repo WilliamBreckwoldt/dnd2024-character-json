@@ -1,0 +1,65 @@
+{
+  "spec_version": "1.0.0",
+  "_comment": "Minimal example for the D&D 2024 Character JSON spec. A level-1 Rogue.",
+
+  "name": "Pip Underbough",
+  "player": "Sam",
+  "species": {
+    "name": "Halfling",
+    "traits": [
+      { "name": "Brave", "description": "Advantage on saves against being Frightened." },
+      { "name": "Lucky", "description": "Reroll a 1 on a d20 Test (use the new roll)." }
+    ]
+  },
+  "classes": [
+    { "name": "Rogue", "subclass": "", "level": 1, "hit_die": "d8" }
+  ],
+  "background": "Criminal",
+  "alignment": "Chaotic Good",
+  "xp": "(Milestone)",
+
+  "abilities": { "str": 8, "dex": 16, "con": 14, "int": 12, "wis": 10, "cha": 13 },
+
+  "saving_throws": ["dex", "int"],
+  "skills": {
+    "stealth": "expertise",
+    "sleight_of_hand": "expertise",
+    "perception": "proficient",
+    "deception": "proficient",
+    "acrobatics": "proficient"
+  },
+
+  "armor_class": 14,
+  "shield": false,
+  "initiative": 3,
+  "speed": { "walk": 30 },
+  "size": "Small",
+  "passive_perception": 12,
+
+  "hit_points": { "max": 10, "current": 10 },
+  "hit_dice": { "die": "d8", "total": 1, "spent": 0 },
+  "death_saves": { "successes": 0, "failures": 0 },
+
+  "proficiencies": {
+    "armor": ["light"],
+    "weapons": "Simple Weapons, Hand Crossbow, Rapier, Shortsword",
+    "tools": "Thieves' Tools",
+    "languages": "Common, Halfling, Thieves' Cant"
+  },
+
+  "weapons": [
+    { "name": "Shortsword", "bonus": "+5", "damage": "1d6+3 Piercing", "notes": "Finesse, Light, Vex" },
+    { "name": "Dagger", "bonus": "+5", "damage": "1d4+3 Piercing", "notes": "Finesse, Light, Thrown, Nick" }
+  ],
+
+  "feats": [],
+  "class_features": [
+    { "name": "Sneak Attack (1d6)", "description": "Extra 1d6 with a Finesse/Ranged weapon when you have Advantage or an ally is adjacent to the target." },
+    { "name": "Thieves' Cant", "description": "Secret rogue language." },
+    { "name": "Weapon Mastery", "description": "Vex (Shortsword), Nick (Dagger)." }
+  ],
+
+  "equipment": ["Leather Armor", "Shortsword", "2 Daggers", "Thieves' Tools", "Backpack", "Rations (5)"],
+  "coins": { "gp": 15 },
+  "attunement": []
+}

@@ -1,0 +1,70 @@
+{
+  "spec_version": "1.0.0",
+  "_comment": "Example character for the D&D 2024 Character JSON spec — a Human Fighter (no spells). Copy this as a starting point for your own PCs.",
+
+  "name": "Bram Ironhold",
+  "species": {
+    "name": "Human",
+    "traits": [
+      { "name": "Resourceful", "description": "You gain Heroic Inspiration whenever you finish a Long Rest." },
+      { "name": "Skillful", "description": "Proficiency in one skill of your choice." },
+      { "name": "Versatile", "description": "You gain an Origin feat of your choice (see Feats)." }
+    ]
+  },
+  "classes": [ { "name": "Fighter", "subclass": "Champion", "level": 3, "hit_die": "d10" } ],
+  "background": "Soldier",
+  "alignment": "Lawful Good",
+  "xp": "(Milestone)",
+
+  "abilities": { "str": 16, "dex": 13, "con": 15, "int": 8, "wis": 12, "cha": 10 },
+
+  "saving_throws": ["str", "con"],
+  "skills": {
+    "athletics": "proficient",
+    "intimidation": "proficient",
+    "perception": "proficient",
+    "survival": "proficient"
+  },
+
+  "armor_class": 19,
+  "shield": true,
+  "initiative": 3,
+  "speed": { "walk": 30 },
+  "size": "Medium",
+  "passive_perception": 13,
+
+  "hit_points": { "max": 28, "current": 28 },
+  "hit_dice": { "die": "d10", "total": 3, "spent": 0 },
+  "death_saves": { "successes": 0, "failures": 0 },
+
+  "proficiencies": {
+    "armor": ["light", "medium", "heavy", "shields"],
+    "weapons": "Simple Weapons, Martial Weapons",
+    "tools": "Dice Set",
+    "languages": "Common, Dwarvish"
+  },
+
+  "weapons": [
+    { "name": "Longsword", "bonus": "+5", "damage": "1d8+3 Slashing", "notes": "Martial, Versatile (1d10), Sap" },
+    { "name": "Handaxe", "bonus": "+5", "damage": "1d6+3 Slashing", "notes": "Simple, Light, Thrown, Vex, Range (20/60)" },
+    { "name": "Light Crossbow", "bonus": "+3", "damage": "1d8+1 Piercing", "notes": "Simple, Ammunition, Loading, Two-Handed, Slow, Range (80/320)" }
+  ],
+
+  "feats": [
+    { "name": "Savage Attacker", "description": "Once per turn, reroll the damage dice of a weapon attack and use either result. (Soldier background origin feat.)" },
+    { "name": "Alert", "description": "Add your Proficiency Bonus to your Initiative, and you can swap Initiative with a willing ally. (Human origin feat.)" }
+  ],
+  "class_features": [
+    { "name": "Fighting Style — Defense", "description": "+1 bonus to AC while wearing armor (already included in AC)." },
+    { "name": "Second Wind (3/Long Rest, Bonus Action)", "description": "Regain 1d10 + Fighter level HP. Regain a use on a Short Rest." },
+    { "name": "Weapon Mastery (3 weapons)", "description": "Longsword (Sap), Handaxe (Vex), Greataxe (Cleave)." },
+    { "name": "Action Surge (1/Short or Long Rest)", "description": "Take one extra action on your turn (not the Magic action)." },
+    { "name": "Tactical Mind", "description": "On a failed ability check, expend a use of Second Wind to add 1d10 to the check." },
+    { "name": "Champion — Improved Critical", "description": "Your attack rolls score a Critical Hit on a 19 or 20." },
+    { "name": "Champion — Remarkable Athlete", "description": "Add half your Proficiency Bonus to STR/DEX/CON checks; your running long jump is longer." }
+  ],
+
+  "equipment": ["Chain Mail", "Shield", "Longsword", "2 Handaxes", "Light Crossbow", "Bolts (20)", "Explorer's Pack", "Dice Set"],
+  "coins": { "gp": 10 },
+  "personality": "Stands at the front and never asks an ally to take a risk he wouldn't take first."
+}

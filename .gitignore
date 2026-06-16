@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+.DS_Store
+.claude/
+# internal AI/dev handoff notes, kept locally, not published
+CLAUDE_CODE_HANDOFF.md
+
+# Real PC character files stay private (keep them local or in a separate private
+# repo). The public repo ships only the example-*.json characters.
+characters/*.json
+!characters/example-*.json
+
+# One-shot migration tooling + backups (not part of the project)
+_migrate.py
+_chars_backup/
+
+# Original character-builder exports — contain third-party branding and are
+# not used by the pipeline at runtime. Exclude from publication.
+*_1.pdf
+*_2.pdf
+
+# Generated sheets — regenerate with `python generate_sheets.py`.
+# Comment this out if you want to commit example outputs.
+output/

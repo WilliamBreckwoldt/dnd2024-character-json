@@ -1,0 +1,10 @@
+# Not needed inside the image
+output/
+_chars_backup/
+_migrate.py
+*_1.pdf
+*_2.pdf
+__pycache__/
+*.pyc
+.git/
+.gitignore

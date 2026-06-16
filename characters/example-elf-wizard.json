@@ -1,0 +1,88 @@
+{
+  "spec_version": "1.0.0",
+  "_comment": "Example character for the D&D 2024 Character JSON spec — a High Elf Wizard (full caster). Copy this as a starting point for your own PCs.",
+
+  "name": "Lia Brightwood",
+  "species": {
+    "name": "Elf",
+    "lineage": "High Elf",
+    "traits": [
+      { "name": "Creature Type", "description": "Humanoid. Size: Medium." },
+      { "name": "Darkvision", "description": "60 ft." },
+      { "name": "Fey Ancestry", "description": "Advantage on saves to avoid or end the Charmed condition; magic can't put you to sleep." },
+      { "name": "Keen Senses", "description": "Proficiency in Insight, Perception, or Survival (chose Perception)." },
+      { "name": "Trance", "description": "You can finish a Long Rest in 4 hours of trancelike meditation." },
+      { "name": "Elven Lineage — High Elf", "description": "You know the Prestidigitation cantrip (Intelligence) and can swap it on a Long Rest; higher levels add Detect Magic and Misty Step." }
+    ]
+  },
+  "classes": [ { "name": "Wizard", "subclass": "Evoker", "level": 3, "hit_die": "d6" } ],
+  "background": "Sage",
+  "alignment": "Neutral Good",
+  "xp": "(Milestone)",
+
+  "abilities": { "str": 8, "dex": 14, "con": 14, "int": 16, "wis": 12, "cha": 10 },
+
+  "saving_throws": ["int", "wis"],
+  "skills": {
+    "arcana": "expertise",
+    "history": "proficient",
+    "investigation": "proficient",
+    "perception": "proficient"
+  },
+
+  "armor_class": 12,
+  "shield": false,
+  "initiative": 2,
+  "speed": { "walk": 30 },
+  "size": "Medium",
+  "senses": { "darkvision": 60 },
+  "passive_perception": 13,
+
+  "hit_points": { "max": 20, "current": 20 },
+  "hit_dice": { "die": "d6", "total": 3, "spent": 0 },
+  "death_saves": { "successes": 0, "failures": 0 },
+
+  "proficiencies": {
+    "armor": [],
+    "weapons": "Simple Weapons",
+    "tools": "Calligrapher's Supplies",
+    "languages": "Common, Elvish, Draconic"
+  },
+
+  "weapons": [
+    { "name": "Fire Bolt", "bonus": "+5", "damage": "1d10 Fire", "notes": "Cantrip. Ranged spell attack, 120 ft." },
+    { "name": "Dagger", "bonus": "+4", "damage": "1d4+2 Piercing", "notes": "Simple, Finesse, Light, Thrown, Nick, Range (20/60)" },
+    { "name": "Quarterstaff", "bonus": "+1", "damage": "1d6-1 Bludgeoning", "notes": "Simple, Versatile (1d8), Topple" }
+  ],
+
+  "feats": [
+    { "name": "Magic Initiate (Wizard)", "description": "From the Sage background: two extra wizard cantrips and one level-1 wizard spell (cast 1/Long Rest without a slot)." }
+  ],
+  "class_features": [
+    { "name": "Spellcasting", "description": "Intelligence is your spellcasting ability. Prepare wizard spells from your spellbook each day." },
+    { "name": "Ritual Adept", "description": "You can cast any spell with the Ritual tag from your spellbook as a ritual." },
+    { "name": "Arcane Recovery (1/day)", "description": "On a Short Rest, recover spell slots totaling up to half your wizard level (rounded up)." },
+    { "name": "Scholar — Expertise", "description": "Expertise in Arcana (chosen from your wizard knowledge skills)." },
+    { "name": "Evoker — Evocation Savant", "description": "Copying an Evocation spell into your spellbook costs half the time and gold." },
+    { "name": "Evoker — Sculpt Spells", "description": "When you cast an Evocation spell, you can shield a number of creatures = 1 + the spell's level; they auto-succeed saves and take no damage." }
+  ],
+
+  "spellcasting": { "ability": "int" },
+  "spell_slots": { "1": 4, "2": 2 },
+  "spells": [
+    { "level": "C", "name": "Fire Bolt", "casting_time": "1A", "range": "120 ft.", "concentration": false, "ritual": false, "material": false, "prepared": true, "notes": "Spell atk +5, 1d10 fire (scales with level)." },
+    { "level": "C", "name": "Mage Hand", "casting_time": "1A", "range": "30 ft.", "concentration": false, "ritual": false, "material": false, "prepared": true, "notes": "Spectral hand carries up to 10 lb. 1 min." },
+    { "level": "C", "name": "Light", "casting_time": "1A", "range": "Touch", "concentration": false, "ritual": false, "material": true, "prepared": true, "notes": "Object sheds bright light 20 ft. 1 hr." },
+    { "level": "C", "name": "Prestidigitation", "casting_time": "1A", "range": "10 ft.", "concentration": false, "ritual": false, "material": false, "prepared": true, "notes": "Elven Lineage. Minor magical trick." },
+    { "level": "1", "name": "Magic Missile", "casting_time": "1A", "range": "120 ft.", "concentration": false, "ritual": false, "material": false, "prepared": true, "notes": "Three darts, 1d4+1 force each (auto-hit)." },
+    { "level": "1", "name": "Shield", "casting_time": "1R", "range": "Self", "concentration": false, "ritual": false, "material": false, "prepared": true, "notes": "Reaction: +5 AC until your next turn; blocks Magic Missile." },
+    { "level": "1", "name": "Mage Armor", "casting_time": "1A", "range": "Touch", "concentration": false, "ritual": false, "material": true, "prepared": true, "notes": "Base AC becomes 13 + DEX while unarmored. 8 hr." },
+    { "level": "1", "name": "Detect Magic", "casting_time": "1A", "range": "Self", "concentration": true, "ritual": true, "material": false, "prepared": true, "notes": "Ritual. Sense magic within 30 ft. Conc 10 min." },
+    { "level": "2", "name": "Scorching Ray", "casting_time": "1A", "range": "120 ft.", "concentration": false, "ritual": false, "material": false, "prepared": true, "notes": "Three rays, spell atk +5, 2d6 fire each." },
+    { "level": "2", "name": "Misty Step", "casting_time": "1BA", "range": "Self", "concentration": false, "ritual": false, "material": false, "prepared": true, "notes": "Bonus Action: teleport up to 30 ft to a space you can see." }
+  ],
+
+  "equipment": ["Spellbook", "Quarterstaff", "Dagger", "Arcane Focus (orb)", "Scholar's Pack", "Calligrapher's Supplies", "Robes"],
+  "coins": { "gp": 8 },
+  "personality": "Curious to a fault — will pause mid-battle to identify an unfamiliar magic effect."
+}

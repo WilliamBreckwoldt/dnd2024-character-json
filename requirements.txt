@@ -1,0 +1,4 @@
+# Pinned for reproducible builds.
+pypdf==6.13.2        # PDF form filling (generate_sheets.py)
+pymupdf==1.27.2.3    # flatten output so it renders identically in every viewer
+jsonschema==4.26.0   # spec validation (validate.py)
