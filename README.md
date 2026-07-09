@@ -50,6 +50,8 @@ way years from now.
 ### Option B — Local Python (3.8+)
 
 ```bash
+python -m venv venv
+source ./venv/bin/activate
 pip install -r requirements.txt
 
 python generate_sheets.py          # generate all characters
