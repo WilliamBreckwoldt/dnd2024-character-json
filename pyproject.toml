@@ -5,18 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dnd2024-character-json"
 version = "0.1.0"
+description = "A structured way to store D&D 2024 characters"
+readme = "README.md"
+requires-python = ">=3.9"
 dependencies = [
     "pypdf==6.13.2",
     "pymupdf==1.27.2.3",
-    "jsonschema==4.26.0",
+    "jsonschema==4.26.0"
 ]
 
 [tool.setuptools]
-# Expose the python script modules at the root
-py-modules = ["validate", "generate_sheets"]
+# Tells setuptools to look for a folder named "dnd2024_character_json"
+packages = ["dnd2024_character_json"]
 
 [tool.setuptools.package-data]
-"*" = [
-    "spec/**/*",                  # Grabs every file/subfolder inside the spec folder (schema, changelog, examples)
-    "_character_sheet_template.pdf"
+# Tells Python to actually install the PDF and the JSON schema files
+dnd2024_character_json = [
+    "_character_sheet_template.pdf", 
+    "spec/*.json", 
+    "spec/**/*.json"
 ]
