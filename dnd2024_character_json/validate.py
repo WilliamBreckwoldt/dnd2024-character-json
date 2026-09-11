@@ -5,7 +5,8 @@ Validate character files against the D&D 2024 Character JSON spec.
   python validate.py                 # validate every characters/*.json
   python validate.py path/to.json    # validate specific file(s)
 
-Exit code is non-zero if any file fails, so it works in CI / Docker builds.
+Reads character JSON files from the workspace's characters/ directory.
+Exit code is non-zero if any file fails.
 Requires: jsonschema  (pip install jsonschema)
 """
 import json
@@ -43,12 +44,8 @@ def main(workspace_dir=None):
     schema = json.loads(schema_path.read_text(encoding="utf-8"))
     validator = Draft202012Validator(schema)
 
-    args = sys.argv[1:]
-    if args:
-        files = [Path(a) for a in args]
-    else:
-        # Fall back to looking in the user's workspace characters folder
-        files = sorted((workspace_dir / "characters").glob("*.json"))
+    # Automatically look in the workspace's characters folder
+    files = sorted((workspace_dir / "characters").glob("*.json"))
 
     if not files:
         print("No character files to validate.")

@@ -6,10 +6,9 @@ Reads JSON character data from characters/ and fills the fillable D&D 2024
 character sheet template to produce print-ready PDFs.
 
 Workflow:
-  1. Edit JSON files in characters/ (one per player character)
-  2. Run this script:        python generate_sheets.py
-     or one character only:  python generate_sheets.py example-human-fighter
-  3. Output PDFs appear in output/
+  1. Edit JSON files in your workspace's characters/ folder
+  2. Call main(workspace_dir=path) from your runner script or notebook
+  3. Output PDFs appear in your workspace's output/ folder
 
 Requires: pypdf  (pip install pypdf)
 
@@ -887,10 +886,6 @@ def main(workspace_dir=None):
 
     output_dir.mkdir(exist_ok=True)
 
-    # Optional CLI arg: generate only the named character(s) (case-insensitive,
-    # matches file stem or the "name" field).
-    wanted = [a.lower() for a in sys.argv[1:]]
-
     json_files = sorted(chars_dir.glob("*.json"))
     if not json_files:
         print("No JSON files found in {}".format(chars_dir))
@@ -902,16 +897,10 @@ def main(workspace_dir=None):
 
     processed = 0
     for jf in json_files:
-        if wanted and jf.stem.lower() not in wanted:
-            continue
         print("Processing {}...".format(jf.name), end=" ")
         try:
             with open(jf, "r", encoding="utf-8") as f:
                 char = json.load(f)
-
-            if wanted and char.get("name", "").lower() not in wanted \
-                    and jf.stem.lower() not in wanted:
-                continue
 
             name = char.get("name", jf.stem)
             warnings = validate_character(char)
@@ -927,10 +916,6 @@ def main(workspace_dir=None):
             processed += 1
         except Exception as e:
             print("ERROR: {}".format(e))
-
-    if wanted and processed == 0:
-        print("\nNo character matched: {}".format(", ".join(sys.argv[1:])))
-        print("Available: {}".format(", ".join(j.stem for j in json_files)))
 
     print()
     print("Done! {} sheet(s) written to: {}".format(processed, output_dir))
