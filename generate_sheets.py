@@ -852,11 +852,30 @@ def _flatten_bytes(data):
     return out
 
 
-def main():
-    script_dir = Path(__file__).parent.resolve()
-    chars_dir = script_dir / "characters"
-    output_dir = script_dir / "output"
-    template_path = script_dir / "_character_sheet_template.pdf"
+def main(workspace_dir=None):
+    """
+    Generates PDF character sheets from JSON character files.
+
+    Args:
+        workspace_dir (str or Path, optional): The root directory of the project 
+            containing the 'characters/' and 'output/' folders. Defaults to the 
+            current working directory if not provided.
+    """
+    # Determine the project workspace root
+    if not workspace_dir:
+        workspace_dir = Path.cwd()
+    else:
+        workspace_dir = Path(workspace_dir)
+
+    # Where the library's internal files (like the PDF template) live
+    library_dir = Path(__file__).parent.resolve()
+
+    # Paths mapped to the external workspace
+    chars_dir = workspace_dir / "characters"
+    output_dir = workspace_dir / "output"
+    
+    # Path mapped internally to the package
+    template_path = library_dir / "_character_sheet_template.pdf"
 
     if not template_path.exists():
         print("ERROR: Template not found at {}".format(template_path))

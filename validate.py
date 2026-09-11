@@ -19,9 +19,24 @@ except ImportError:
     sys.exit(2)
 
 
-def main():
-    root = Path(__file__).parent.resolve()
-    schema_path = root / "spec" / "character.schema.json"
+def main(workspace_dir=None):
+    """
+    Validates character JSON files against the D&D 2024 character schema.
+
+    Args:
+        workspace_dir (str or Path, optional): The root directory of the project 
+            containing the 'characters/' folder. Defaults to the current 
+            working directory if not provided.
+    """
+    if not workspace_dir:
+        workspace_dir = Path.cwd()
+    else:
+        workspace_dir = Path(workspace_dir)
+
+    # Where the library's internal files (like the schema) live
+    library_dir = Path(__file__).parent.resolve()
+    
+    schema_path = library_dir / "spec" / "character.schema.json"
     if not schema_path.exists():
         print("ERROR: spec not found at {}".format(schema_path))
         sys.exit(2)
@@ -32,7 +47,8 @@ def main():
     if args:
         files = [Path(a) for a in args]
     else:
-        files = sorted((root / "characters").glob("*.json"))
+        # Fall back to looking in the user's workspace characters folder
+        files = sorted((workspace_dir / "characters").glob("*.json"))
 
     if not files:
         print("No character files to validate.")
